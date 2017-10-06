@@ -71,7 +71,7 @@ function runImage() {
 		}
     context.fillRect(rect0.x, rect0.y, rect0.width, rect0.height);
   }
-  if (key[0] && rect1.x == 1000){
+  if (key[0] && rect1.x == width * 0.5){
     cxCoordinate-=40;
     canvas.style.backgroundPosition = cxCoordinate + "px";
     context.clearRect(0, 0, width, height);
