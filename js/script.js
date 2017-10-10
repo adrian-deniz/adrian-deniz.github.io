@@ -13,11 +13,7 @@ var xMin= Math.round(width * 0.5 / 100) * 10;
 var xMax = Math.round(width * 0.5 / 100) * 100;
 var steps = Math.round(width * 0.5 / 100);
 
-console.log(Math.round(width * 0.5 / 100) * 10);
-console.log(Math.round(width * 0.5 / 100) * 100);
-console.log(Math.round(width * 0.5 / 100));
-console.log(Math.round(height / 2));
-console.log(Math.round(width / 7));
+document.addEventListener("touchstart", function(){}, true);
 
 function myFunction() {
   t = 1;
