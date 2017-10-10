@@ -20,6 +20,7 @@ console.log(Math.round(height / 2));
 console.log(Math.round(width / 7));
 
 function myFunction() {
+  alert(10);
   t = 1;
   console.log(t);
   context.clearRect(0, 0, width, height);
