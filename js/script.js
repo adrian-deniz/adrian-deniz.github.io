@@ -19,6 +19,34 @@ console.log(Math.round(width * 0.5 / 100));
 console.log(Math.round(height / 2));
 console.log(Math.round(width / 7));
 
+function myFunction() {
+  t = 1;
+  console.log(t);
+  context.clearRect(0, 0, width, height);
+  runImage();
+  rect1.y = 0;
+  context.drawImage(imageObj, sxCoordinate, 0, 288, 557, rect1.x, rect1.y, rect1.width, rect1.height);
+  if(utils.rectIntersect(rect0, rect1)) {
+    context.fillStyle = "#ff6666";
+  }
+  else {
+    context.fillStyle = "#999999";
+  }
+  context.fillRect(rect0.x, rect0.y, rect0.width, rect0.height);
+  jump = setTimeout(function () {
+    context.clearRect(0, 0, width, height);
+    rect1.y = height - Math.round(height / 2);
+    context.drawImage(imageObj, sxCoordinate, 0, 288, 557, rect1.x, rect1.y, rect1.width, rect1.height);
+    if(utils.rectIntersect(rect0, rect1)) {
+      context.fillStyle = "#ff6666";
+    }
+    else {
+      context.fillStyle = "#999999";
+    }
+    context.fillRect(rect0.x, rect0.y, rect0.width, rect0.height);
+  }, 150);
+}
+
 var rect1 = {
       x: xMin,
       y: height - Math.round(height / 2), // universal y position
@@ -33,7 +61,7 @@ imageObj.onload = function() {
  }
 
 var rect0 = {
-			x: 700,
+			x: width / 3,
 			y: height - 100, // universal y position
 			width: 200,
 			height: 100
