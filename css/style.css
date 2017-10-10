@@ -10,3 +10,5 @@ canvas {
   background: url(../img/scenery.png);
   background-size: cover;
 }
+
+-webkit-tap-highlight-color rgba(0,0,0,0);
