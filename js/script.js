@@ -15,6 +15,27 @@ var steps = Math.round(width * 0.5 / 100);
 
 var jump = document.getElementById("scenery");
 jump.addEventListener("touchmove", doSomething, false);
+jump.addEventListener("touchstart", doSomething2, false);
+
+function doSomething2() {
+  (function loop() {
+    cxCoordinate -= Math.round(width/48);
+    canvas.style.backgroundPosition = cxCoordinate + "px";
+    context.clearRect(0, 0, width, height);
+    runImage();
+    rect1.x += steps;
+    console.log(rect1.x);
+    context.drawImage(imageObj, sxCoordinate, 0, 288, 557, rect1.x, rect1.y, rect1.width, rect1.height);
+    if(utils.rectIntersect(rect0, rect1)) {
+      context.fillStyle = "#ff6666";
+    }
+    else {
+      context.fillStyle = "#999999";
+    }
+    context.fillRect(rect0.x, rect0.y, rect0.width, rect0.height);
+    setTimeout(loop,42);
+  })();
+}
 
 function doSomething() {
   t = 1;
