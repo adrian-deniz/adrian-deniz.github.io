@@ -13,8 +13,10 @@ var xMin= Math.round(width * 0.5 / 100) * 10;
 var xMax = Math.round(width * 0.5 / 100) * 100;
 var steps = Math.round(width * 0.5 / 100);
 
+var jump = document.getElementById("scenery");
+jump.addEventListener("touchstart", doSomething, false);
 
-function myFunction() {
+function doSomething() {
   t = 1;
   console.log(t);
   context.clearRect(0, 0, width, height);
