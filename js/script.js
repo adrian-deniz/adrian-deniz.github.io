@@ -9,12 +9,23 @@ width = canvas.width = window.innerWidth;
 height = canvas.height = window.innerHeight;
 canvas.style.backgroundPosition = cxCoordinate + "px";
 
-var xMin= Math.round(width * 0.5 / 100) * 10;
-var xMax = Math.round(width * 0.5 / 100) * 100;
-var steps = Math.round(width * 0.5 / 100);
+var xMin= Math.round(width * 0.3 / 100) * 10;
+var xMax = Math.round(width * 0.3 / 100) * 100;
+var steps = Math.round(width * 0.3 / 100);
 
 var jump = document.getElementById("scenery");
 jump.addEventListener("touchstart", doSomething, false);
+
+var utils = {
+	rangeIntersect: function(min0, max0, min1, max1) {
+		return max0 >= min1 && min0 <= max1;
+	},
+
+	rectIntersect: function(r0, r1) {
+		return utils.rangeIntersect(r0.x, r0.x + r0.width, r1.x, r1.x + r1.width) &&
+			   utils.rangeIntersect(r0.y, r0.y + r0.height, r1.y, r1.y + r1.height);
+  }
+}
 
 function doSomething() {
   t = 1;
@@ -59,9 +70,9 @@ imageObj.onload = function() {
 
 var rect0 = {
 			x: width / 3,
-			y: height - 100, // universal y position
-			width: 200,
-			height: 100
+			y: height - Math.round(height/9), // universal y position
+			width: Math.round(width/10),
+			height: Math.round(height/9)
 		};
 context.fillStyle = "#999999";
 context.fillRect(rect0.x, rect0.y, rect0.width, rect0.height);
@@ -90,7 +101,7 @@ function runImage() {
 }
 
 (function loop() {
-  if(key[0] && rect1.x != xMax) {
+  if(rect1.x != xMax) {
     cxCoordinate -= Math.round(width/48);
     canvas.style.backgroundPosition = cxCoordinate + "px";
     context.clearRect(0, 0, width, height);
@@ -98,15 +109,15 @@ function runImage() {
     rect1.x += steps;
     console.log(rect1.x);
     context.drawImage(imageObj, sxCoordinate, 0, 288, 557, rect1.x, rect1.y, rect1.width, rect1.height);
-    if(utils.rectIntersect(rect0, rect1)) {
-			context.fillStyle = "#ff6666";
-		}
-		else {
-			context.fillStyle = "#999999";
-		}
+     if(utils.rectIntersect(rect0, rect1)) {
+		 	context.fillStyle = "#ff6666";
+		 }
+		 else {
+		 	context.fillStyle = "#999999";
+		 }
     context.fillRect(rect0.x, rect0.y, rect0.width, rect0.height);
   }
-  if (key[0] && rect1.x == xMax){
+  if (rect1.x == xMax){
     cxCoordinate -= Math.round(width/48);
     canvas.style.backgroundPosition = cxCoordinate + "px";
     context.clearRect(0, 0, width, height);
@@ -158,7 +169,7 @@ function runImage() {
     console.log(t);
     context.clearRect(0, 0, width, height);
     runImage();
-    rect1.y = 0;
+    rect1.y = 80;
     context.drawImage(imageObj, sxCoordinate, 0, 288, 557, rect1.x, rect1.y, rect1.width, rect1.height);
     if(utils.rectIntersect(rect0, rect1)) {
       context.fillStyle = "#ff6666";
@@ -185,17 +196,6 @@ function runImage() {
   setTimeout(loop,42);
 })();
 
-var utils = {
-	rangeIntersect: function(min0, max0, min1, max1) {
-		return max0 >= min1 && min0 <= max1;
-	},
 
-	rectIntersect: function(r0, r1) {
-		return utils.rangeIntersect(r0.x, r0.x + r0.width, r1.x, r1.x + r1.width) &&
-			   utils.rangeIntersect(r0.y, r0.y + r0.height, r1.y, r1.y + r1.height);
-
-	}
-
-}
 document.onkeydown = keyDown;
 document.onkeyup = keyUp;
