@@ -10,6 +10,10 @@ canvas:active {
   background-color: red; 
 }
 
+canvas:focus {
+  background-color: red; 
+}
+
 #scenery {
 /*   background: url(../img/scenery.png); */
   background-size: cover;
