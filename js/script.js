@@ -16,6 +16,19 @@ var steps = Math.round(width * 0.3 / 100);
 var jump = document.getElementById("scenery");
 jump.addEventListener("touchstart", doSomething, false);
 
+window.onresize = function (event) {
+  applyOrientation();
+}
+
+function applyOrientation() {
+  if (window.innerHeight > window.innerWidth) {
+   console.log("You are now in portrait");
+  } else {
+    console.log("You are now in landscape");
+		location.reload();
+  }
+}
+
 var utils = {
 	rangeIntersect: function(min0, max0, min1, max1) {
 		return max0 >= min1 && min0 <= max1;
