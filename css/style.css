@@ -7,14 +7,6 @@ canvas {
   -webkit-tap-highlight-color: rgba(255,255,255,0);
 }
 
-canvas:active {
-  background-color: red; 
-}
-
-canvas:focus {
-  background-color: red; 
-}
-
 #scenery {
   background: url(../img/scenery.png);
   background-size: cover;
