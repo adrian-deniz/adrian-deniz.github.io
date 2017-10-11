@@ -16,7 +16,7 @@ canvas:focus {
 }
 
 #scenery {
-/*   background: url(../img/scenery.png); */
+  background: url(../img/scenery.png);
   background-size: cover;
 }
 
