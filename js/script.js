@@ -14,7 +14,7 @@ var xMax = Math.round(width * 0.5 / 100) * 100;
 var steps = Math.round(width * 0.5 / 100);
 
 var jump = document.getElementById("scenery");
-jump.addEventListener("touchmove", doSomething, false);
+jump.addEventListener("touchstart", doSomething, false);
 
 function doSomething() {
   t = 1;
