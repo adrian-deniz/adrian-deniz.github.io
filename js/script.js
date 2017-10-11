@@ -169,7 +169,7 @@ function runImage() {
     console.log(t);
     context.clearRect(0, 0, width, height);
     runImage();
-    rect1.y = 80;
+    rect1.y = Math.round(height/12);
     context.drawImage(imageObj, sxCoordinate, 0, 288, 557, rect1.x, rect1.y, rect1.width, rect1.height);
     if(utils.rectIntersect(rect0, rect1)) {
       context.fillStyle = "#ff6666";
