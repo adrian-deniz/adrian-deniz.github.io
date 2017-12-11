@@ -3,13 +3,13 @@ context = canvas.getContext("2d");
 width = canvas.width = window.innerWidth;
 height = canvas.height = window.innerHeight;
 
-window.onresize = function (event) {
-  if (window.innerHeight > window.innerWidth) {
-   console.log("You are now in portrait");
-  } else {
-		location.reload();
-  }
-}
+// window.onresize = function (event) {
+//   if (window.innerHeight > window.innerWidth) {
+//    console.log("You are now in portrait");
+//   } else {
+// 		location.reload();
+//   }
+// }
 function Coin() {
   this.dimensions = {
     x: width,
