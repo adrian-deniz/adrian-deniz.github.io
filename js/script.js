@@ -13,9 +13,9 @@ height = canvas.height = window.innerHeight;
 function Coin() {
   this.dimensions = {
     x: width,
-    y: Math.round(height/12),
-    width: Math.round(width / 14),
-    height: Math.round(height / 8)
+    y: Math.round(height/2),
+    width: Math.round(width / 10),
+    height: Math.round(height / 16)
   };
   this.steps = Math.round(width * 0.8 / 100);
   this.movement = function() {
@@ -36,7 +36,6 @@ function coinGenerator() {
   var x = window["coin" + i];
   coinArray.push(x);
   i++;
-  // console.log(coinArray);
 }
 
 function coinLoop() {
@@ -59,27 +58,27 @@ function coinLoop() {
           coin3.dimensions.x = coin3.dimensions.width*-1
         }
         coinArray[3].movement();
-        if(coinArray[3].dimensions.x < width * 0.9) {
+        if(coinArray[3].dimensions.x < width * 0.5) {
           if(utils.rectIntersect(character.dimensions, coinArray[4]["dimensions"])) {
             coin4.dimensions.x = coin4.dimensions.width*-1
           }
           coinArray[4].movement();
-          if(coinArray[4].dimensions.x < width * 0.9) {
+          if(coinArray[4].dimensions.x < width * 0.8) {
             if(utils.rectIntersect(character.dimensions, coinArray[5]["dimensions"])) {
               coin5.dimensions.x = coin5.dimensions.width*-1
             }
             coinArray[5].movement();
-            if(coinArray[5].dimensions.x < width * 0.5) {
+            if(coinArray[5].dimensions.x < width * 0.8) {
               if(utils.rectIntersect(character.dimensions, coinArray[6]["dimensions"])) {
                 coin6.dimensions.x = coin6.dimensions.width*-1
               }
               coinArray[6].movement();
-              if(coinArray[6].dimensions.x < width * 0.9) {
+              if(coinArray[6].dimensions.x < width * 0.6) {
                 if(utils.rectIntersect(character.dimensions, coinArray[7]["dimensions"])) {
                   coin7.dimensions.x = coin7.dimensions.width*-1
                 }
                 coinArray[7].movement();
-                if(coinArray[7].dimensions.x < width * 0.8) {
+                if(coinArray[7].dimensions.x < width * 0.7) {
                   if(utils.rectIntersect(character.dimensions, coinArray[8]["dimensions"])) {
                     coin8.dimensions.x = coin8.dimensions.width*-1
                   }
@@ -116,9 +115,9 @@ var character = {
   dimensions: {
       // sx: 0,
       x: Math.round(width * 0.3 / 100) * 10,
-      y: height - Math.round(height / 2),
+      y: height - Math.round(height / 4),
       width: Math.round(width / 7),
-      height: Math.round(height / 2)
+      height: Math.round(height / 4)
     },
   movement: {
     xMin: Math.round(width * 0.3 / 100) * 10,
@@ -149,9 +148,9 @@ var character = {
     }
   },
   jump: function() {
-    character.dimensions.y = Math.round(height/12);
+    character.dimensions.y = Math.round(height/2);
     reset = setTimeout(function () {
-      character.dimensions.y = height - Math.round(height / 2);
+      character.dimensions.y = height - Math.round(height / 4);
     },  150);
   }
 };
