@@ -190,7 +190,7 @@ var booger = 0;
 context.font="35px Georgia";
 (function loop() {
   context.clearRect(0, 0, width, height);
-  context.fillText(booger, Math.round(width * 0.85), Math.round(height * 0.04));
+  context.fillText(booger, Math.round(width * 0.85), Math.round(height * 0.05));
   background.loop();
   coinGenerator();
   coinLoop();
