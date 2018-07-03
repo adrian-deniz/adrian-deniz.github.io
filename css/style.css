@@ -1,15 +1,41 @@
-html, body {
-  margin: 0px;
+a {
+  /* width: calc(25% - 60px);
+  height: calc(50vh - 60px); */
+  width: calc(50vw - 60px);
+  height: calc(25vh - 60px);
+  background-color: #0066cc;
+  color: #eee;
+  font-size: 20pt;
+  text-align: center;
+  margin: 30px;
+  cursor: pointer;
+  display: grid;
+  align-content: center;
 }
 
-canvas {
-  display: block;
-  -webkit-tap-highlight-color: rgba(255,255,255,0);
+
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
 
-#scenery {
-  background: url(../img/scenery.png);
-  background-size: cover;
+body {
+  background-color: #eee;
+  margin: 0;
 }
 
+.stop {
+  pointer-events: none;
+  cursor: none;
+}
 
+h1 {
+  color: green;
+  font-size: 278px;
+  position: absolute;
+  top: 6%;
+  left: 16%;
+}
