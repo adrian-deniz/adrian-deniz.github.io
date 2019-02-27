@@ -195,5 +195,6 @@ context.font="35px Georgia";
   coinGenerator();
   coinLoop();
   character.run();
-  setTimeout(loop,42);
+//   setTimeout(loop,42);
+  requestAnimationFrame(loop);
 })();
