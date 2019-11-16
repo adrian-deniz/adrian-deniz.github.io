@@ -7,7 +7,7 @@ const cameraView = document.querySelector("#camera--view"),
     cameraTrigger = document.querySelector("#camera--trigger")
 // Access the device camera and stream to cameraView
 function cameraStart() {
-    mediaDevices.getUserMedia(constraints)
+    navigator.mediaDevices.getUserMedia(constraints)
         .then(function(stream) {
         track = stream.getTracks()[0];
         cameraView.srcObject = stream;
@@ -26,5 +26,3 @@ cameraTrigger.onclick = function() {
 };
 // // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);
-
-
